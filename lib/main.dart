@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'auth/login.dart';
+import 'screens/task_screen.dart';
 
 void main(){
   runApp(Home());
@@ -16,7 +17,7 @@ class Home extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: TaskScreen(),
     );
   }
 }
