@@ -1,5 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task/auth/register.dart';
+import 'package:task/screens/task_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -49,27 +52,27 @@ class _LoginPageState extends State<LoginPage>
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          CachedNetworkImage(
-            imageUrl:
-                "http://robin.adovasoft.com/My_portfolio/public/img/elements/g21.jpeg",
-            placeholder: (context, url) => Image.asset(
-              'assets/images/login1.jpg',
-              fit: BoxFit.fill,
-            ),
-            errorWidget: (context, url, error) => Icon(Icons.error),
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
-            alignment: FractionalOffset(_animation.value, 0),
-          ),
-          //For asset image animation
-          // Image.asset(
-          //   'assets/images/login.jpeg',
+          // CachedNetworkImage(
+          //   imageUrl:
+          //       "http://robin.adovasoft.com/My_portfolio/public/img/elements/g21.jpeg",
+          //   placeholder: (context, url) => Image.asset(
+          //     'assets/images/login1.jpg',
+          //     fit: BoxFit.fill,
+          //   ),
+          //   errorWidget: (context, url, error) => Icon(Icons.error),
           //   width: double.infinity,
           //   height: double.infinity,
           //   fit: BoxFit.cover,
           //   alignment: FractionalOffset(_animation.value, 0),
           // ),
+          //For asset image animation
+          Image.asset(
+            'assets/images/homeInit1.jpg',
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
+            alignment: FractionalOffset(_animation.value, 0),
+          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: _size.width / 30),
             child: ListView(
@@ -91,6 +94,9 @@ class _LoginPageState extends State<LoginPage>
                     TextSpan(
                       text: ' Register',
                       style: TextStyle(fontSize: 18, color: Colors.blue),
+                      recognizer: TapGestureRecognizer()..onTap = () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
+                      },
                     ),
                   ]),
                 ),
@@ -151,8 +157,40 @@ class _LoginPageState extends State<LoginPage>
                       )),
                   obscureText: _obscureText,
                 ),
+                SizedBox(height: 40),
+                MaterialButton(
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TaskScreen()));
+                  },
+                  color: Colors.red,
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(13),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Login',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
+                        ),
+                        SizedBox(width: 5),
+                        Icon(
+                          Icons.login,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
+
           )
         ],
       ),

@@ -17,7 +17,7 @@ class Home extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TaskScreen(),
+      home: LoginPage(),
     );
   }
 }

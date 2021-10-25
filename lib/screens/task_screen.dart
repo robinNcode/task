@@ -1,6 +1,6 @@
 import 'dart:js';
-
 import 'package:flutter/material.dart';
+import 'package:task/widgets/custom_drawer.dart';
 import 'package:task/widgets/task_widgets.dart';
 
 class TaskScreen extends StatelessWidget {
@@ -9,7 +9,7 @@ class TaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: CustomDrawer(),
       appBar: AppBar(
         leading: Builder(
           builder: (context) {
@@ -37,22 +37,32 @@ class TaskScreen extends StatelessWidget {
                                 onTap: (){},
                                 child: Row(
                                   children: [
-                                    const Icon(Icons.mark_chat_read, color: Colors.red),
-                                    const Text('Category Filters', style: TextStyle(color: Colors.red),)
+                                    const Icon(Icons.info_outline, color: Colors.teal),
+                                    const Text('  Category Filters', style: TextStyle(color: Colors.teal),)
                                   ],
                                 ),
                               );
                             },
-                            itemCount: 8,
+                            itemCount: 20,
                           ),
                         ),
                         actions: [
                           TextButton(
                               onPressed: (){},
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Icon(Icons.delete, color: Colors.red,),
-                                  Text('Delete', style: TextStyle(color:Colors.red),)
+                                  TextButton(
+                                    onPressed: (){},
+                                    child: const Text('Cancel Filter'),
+                                  ),
+                                  SizedBox(width: 5,),
+                                  TextButton(
+                                    onPressed: (){
+                                      Navigator.pop(context);
+                                    },
+                                    child: const Text('Close'),
+                                  )
                                 ],
                               )
                           )
