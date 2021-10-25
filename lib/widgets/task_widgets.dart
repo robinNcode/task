@@ -47,6 +47,7 @@ class _TaskWidgetState extends State<TaskWidget> {
           child: CircleAvatar(
             radius: 20,
             child: Image.network('https://cdn-icons-png.flaticon.com/512/5218/5218437.png'),
+            backgroundColor: Colors.white,
           )
         ),
         title: const Text(
