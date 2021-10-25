@@ -26,7 +26,7 @@ class _TaskWidgetState extends State<TaskWidget> {
                         onPressed: (){},
                         child: Row(
                           children: [
-                            Icon(Icons.delete_rounded, color: Colors.red,),
+                            Icon(Icons.delete, color: Colors.red,),
                             Text('Delete', style: TextStyle(color:Colors.red),)
                           ],
                         )
