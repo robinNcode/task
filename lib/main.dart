@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task/drawer_screen/upload_task.dart';
 
 import 'auth/login.dart';
 import 'screens/task_screen.dart';
@@ -17,7 +18,7 @@ class Home extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: UploadTask(),
     );
   }
 }
